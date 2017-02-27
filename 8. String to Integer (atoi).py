@@ -10,25 +10,37 @@ class Solution(object):
         for i in range(0,len(str)):
             if(str[i] != ' '):
                 break
-        if((str[i] == '-' or str[i] == '+') and i == len(str) - 1):
+        if(str[i] == ' '):
             return 0
-        if(str[i] != '-' and str[i] != '+' and (not str[i].isdigit())):
-            return 0
-        if(str[i] == '-' or str[i] == '+'):
+        flag = 1
+        if(str[i] == '+'):
+            flag = 1
             i = i + 1
-        j = i + 1
-        for j in range(i + 1,len(str)):
+        elif(str[i] == '-'):
+            flag = 0
+            i = i + 1
+        elif(not str[i].isdigit()):
+            return 0
+        if(i >= len(str)):
+            return 0
+        for j in range(i,len(str)):
             if(not str[j].isdigit()):
                 break
-        str = str[i:j]
-        print i,j
-        if(int(str) > 2147483647):
-            return 2147483647
-        if(int(str) < -2147483648):
-            return -2147483648
-        return int(str)
+        if(not str[j].isdigit()):
+            j = j - 1
+        if (i == j + 1):
+            return 0
+        str = str[i:j + 1]
+        if(flag == 1):
+            if(int(str) > 2147483647):
+                return 2147483647
+            return int(str)
+        else:
+            if(int(str) > 2147483648):
+                return -2147483648
+            return -int(str)
 
 if __name__ == '__main__':
     solution = Solution()
-    re = solution.myAtoi('+1')
+    re = solution.myAtoi('     -123*')
     print re
