@@ -33,7 +33,7 @@ class Solution(object):
                 break
         return head
 
-if __name__ == "__init__":
+if __name__ == "__main__":
     solution = Solution()
     x1 = ListNode(1)
     x2 = ListNode(2)
