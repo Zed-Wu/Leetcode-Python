@@ -8,6 +8,9 @@ class Solution(object):
         :rtype: int
         """
         ans = re.search(needle,haystack)
+        #m = re.match(r'(\w+) (\w+)(?P<sign>.*)', 'hello world!')
+        #print m.groups()
+        #print ans.groups()
         if ans != None:
             return ans.start()
         else:
@@ -15,5 +18,5 @@ class Solution(object):
 
 if __name__ == "__main__":
     solution = Solution()
-    re = solution.strStr('bbbbabcabc','ab')
+    re = solution.strStr('ababc','ab')
     print re
