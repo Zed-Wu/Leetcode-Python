@@ -18,5 +18,5 @@ class Solution(object):
 
 if __name__ == "__main__":
     solution = Solution()
-    re = solution.strStr('bbbbababc','ab')
+    re = solution.strStr('bbbbababc','(ab)')
     print re
